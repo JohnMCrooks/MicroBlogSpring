@@ -18,23 +18,27 @@
     {{/user}}
 
     {{#user}}
-        Messages by {{username}}<br>
-            {{#message}}
-                <table>{{msgId}}: {{msgText}}     <form action="/delete" method="post"><input type="hidden" name="msgId" value="{{msgId}}" />  <button type="submit" >Delete</button></form></table>
-            {{/message}}
 
     <br>
+    <table>
+
         <form action="/add-message" method="post">
             <input type="text" name="msgText" placeholder="Enter a Message"/>
             <button type="submit">Submit</button>
 
         </form>
 
-    <br>
         <form action ="/logout" method="post">
             <button type="submit">Logout</button>
         </form>
+    </table>
+    <br>
 
+        Messages by {{username}}:
+        <br>
+            {{#message}}
+                <table>{{msgId}}: {{msgText}}     <form action="/delete" method="post"><input type="hidden" name="msgId" value="{{msgId}}" />  <button type="submit" >Delete</button></form></table>
+            {{/message}}
 
     {{/user}}
 </body>
