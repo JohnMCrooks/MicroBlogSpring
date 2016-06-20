@@ -8,10 +8,10 @@ package com.crooks;
  * Created by johncrooks on 6/20/16.
  */
 public class Message {
-    int msgId;
+    Integer msgId;
     String msgText;
 
-    public Message(int msgId, String msgText) {
+    public Message(Integer msgId, String msgText) {
         this.msgId = msgId;
         this.msgText = msgText;
     }
@@ -20,7 +20,7 @@ public class Message {
         return msgId;
     }
 
-    public void setMsgId(int msgId) {
+    public void setMsgId(Integer msgId) {
         this.msgId = msgId;
     }
 
