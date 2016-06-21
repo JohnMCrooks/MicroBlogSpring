@@ -1,15 +1,22 @@
 body {
     background-color: beige;
-
+    background:
 }
 
 h1 {
     color: teal;
     text-align: center;
 }
+div {
+    background-color:#F9F5DC;
+    margin:auto;
 
+}
+table{
+    margin:left;
+    align: center;
+}
 p {
     font-family: "Times New Roman";
     font-size: 20px;
-    align: center;
 }

@@ -4,24 +4,31 @@
 
 package com.crooks;
 
+import javax.persistence.*;
+
 /**
  * Created by johncrooks on 6/20/16.
  */
+@Entity
+@Table(name="messages")
 public class Message {
-    Integer msgId;
+    @Id
+    @GeneratedValue
+    int msgId;
+
+    @Column(nullable = false)
     String msgText;
 
-    public Message(Integer msgId, String msgText) {
+    public Message(int msgId, String msgText) {
         this.msgId = msgId;
         this.msgText = msgText;
     }
 
-    public int getMsgId() {
-        return msgId;
+    public Message(String msgText) {
+        this.msgText = msgText;
     }
 
-    public void setMsgId(Integer msgId) {
-        this.msgId = msgId;
+    public Message() {
     }
 
     public String getMsgText() {
@@ -31,4 +38,5 @@ public class Message {
     public void setMsgText(String msgText) {
         this.msgText = msgText;
     }
+
 }

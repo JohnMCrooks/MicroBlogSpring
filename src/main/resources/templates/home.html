@@ -12,16 +12,19 @@
 <body>
 
     {{^user}}
+    <div align="center">
         <form action ="/login" method="post">
             <input type="text" name="username" placeholder="Enter your name"/>   <!-- the name here must match the controller argument being passed -->
+            <input type="password" name="password" placeholder="Password"/>
             <button type="submit">Login</button>
         </form>
+    </div>
     {{/user}}
 
-    {{#user}}
 
+    {{#user}}
     <br>
-    <table>
+    <table align="center">
         <tr>
             <td>
             <form action="/add-message" method="post">
@@ -42,14 +45,33 @@
         <h1>Messages by {{username}}:</h1>
         <br>
         <p align="center">
-        <table border="1" width="300">
-            {{#message}}
+    <div align="center">
+        <table border="1" width="50%">
+            {{#messages}}
                 <tr>
-                    <td width="75%">{{msgId}}: {{msgText}}</td>    <td width="15%"> <form action="/delete" method="post"><input type="hidden" name="msgId" value="{{msgId}}" />  <button type="submit" >Delete</button></form></td>
+                    <td width="auto">{{msgId}}: {{msgText}}</td>
+
+                    <td>
+                        <form action="/edit" method="post">
+                            <input type="hidden" name="msgId" value="{{msgId}}" />
+                            <input type="text" name="editedText" value="{{msgText}}" />
+                            <td><button type="submit" >Edit</button></td>
+                        </form>
+                        <td>
+                            <form action="/delete" method="post">
+                                <input type="hidden" name="msgId" value="{{msgId}}" >
+                                <button type="submit" >Delete</button>
+                            </form>
+                        </td>
+                    </td>
+
                 </tr>
-            {{/message}}
+            {{/messages}}
          </table>
+    </div>
         </p>
-    {{/user}}
+
+        {{/user}}
+
 </body>
 </html>
