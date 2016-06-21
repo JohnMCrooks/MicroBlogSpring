@@ -24,15 +24,6 @@ public class MBSController {
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String home(Model model, HttpSession session, String name, Integer msgId, String msgText){
-        if (name==null){
-            name = "snow";
-        }
-        if(msgId==null){
-            msgId=1;
-        }
-        if (msgText==null){
-            msgText = "";
-        }
 
         Message message = new Message(msgId, msgText);
         model.addAttribute("message", mesgList);
@@ -48,8 +39,12 @@ public class MBSController {
     }
 
     @RequestMapping(path="/login", method=RequestMethod.POST)
-    public String login(String username, HttpSession session){
+    public String login(String username, HttpSession session) throws Exception {
+        if (username==null){
+            throw new Exception("Didn't recieve a UserName!");
+        }
         session.setAttribute("username", username);
+
         return "redirect:/";
     }
 
